@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap');
+
+:root{
+  --ink:        #14201c;
+  --surface:    #1e2e27;
+  --surface-2:  #253a31;
+  --line:       #33473d;
+  --paper:      #ede6d6;
+  --paper-dim:  #a8b3ab;
+  --brass:      #c9a227;
+  --brass-dim:  #8a7326;
+  --citrus:     #a8c256;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background: radial-gradient(ellipse at top, #1a2822 0%, var(--ink) 60%);
+  font-family:'Inter', sans-serif;
+  min-height:100vh;
+}
+
+#center{
+  padding:0 24px 56px;
+}
+
+/* ---------- Barra filtri ---------- */
+
+.filter-bar{
+  position:sticky;
+  top:0;
+  z-index:10;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:14px;
+  padding:18px 24px;
+  background:rgba(20, 32, 28, .92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+
+.filter-search{
+  flex:1 1 220px;
+  padding:10px 14px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:20px;
+  color:var(--paper);
+  font-family:'Inter', sans-serif;
+  font-size:.9rem;
+  outline:none;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+
+.filter-search::placeholder{
+  color:var(--paper-dim);
+}
+
+.filter-search:focus{
+  border-color:var(--brass);
+  box-shadow:0 0 0 3px rgba(201,162,39,.18);
+}
+
+.filter-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.chip{
+  padding:7px 14px;
+  background:transparent;
+  border:1px solid var(--line);
+  border-radius:20px;
+  color:var(--paper-dim);
+  font-family:'JetBrains Mono', monospace;
+  font-size:.72rem;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+
+.chip:hover{
+  border-color:var(--brass-dim);
+  color:var(--paper);
+}
+
+.chip-active{
+  background:linear-gradient(135deg, var(--brass) 0%, var(--brass-dim) 100%);
+  border-color:transparent;
+  color:var(--ink);
+  font-weight:600;
+}
+
+.filter-select{
+  padding:9px 14px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:20px;
+  color:var(--paper);
+  font-family:'JetBrains Mono', monospace;
+  font-size:.72rem;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  cursor:pointer;
+  outline:none;
+}
+
+.filter-select:focus{
+  border-color:var(--brass);
+}
+
+.filter-reset{
+  padding:9px 16px;
+  background:transparent;
+  border:1px dashed var(--citrus);
+  border-radius:20px;
+  color:var(--citrus);
+  font-family:'JetBrains Mono', monospace;
+  font-size:.72rem;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:background .2s ease, color .2s ease;
+}
+
+.filter-reset:hover{
+  background:var(--citrus);
+  color:var(--ink);
+}
+
+.empty-state{
+  text-align:center;
+  color:var(--paper-dim);
+  font-family:'JetBrains Mono', monospace;
+  font-size:.85rem;
+  padding:60px 0;
+}
+
+/* ---------- Griglia card ---------- */
+
+.grid{
+  list-style:none;
+  margin:0;
+  padding:32px 0 0;
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  gap:28px;
+  max-width:1100px;
+  margin-inline:auto;
+}
+
+/* ---------- Card ---------- */
+
+.card{
+  position:relative;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:28px 24px 22px;
+  overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:14px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--line) 0px, var(--line) 1px,
+    transparent 1px, transparent 12px
+  );
+  opacity:.55;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:var(--brass-dim);
+  box-shadow:0 18px 40px -20px rgba(0,0,0,.6);
+}
+
+.card:focus-within{
+  outline:2px solid var(--brass);
+  outline-offset:3px;
+}
+
+.badge{
+  position:absolute;
+  top:-14px; right:22px;
+  width:54px; height:54px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, var(--brass) 0%, var(--brass-dim) 70%);
+  color:var(--ink);
+  font-family:'JetBrains Mono', monospace;
+  font-weight:600;
+  font-size:.68rem;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.4);
+}
+
+.name{
+  font-family:'Fraunces', serif;
+  font-optical-sizing:auto;
+  font-weight:600;
+  font-size:1.5rem;
+  color:var(--paper);
+  margin:0 0 4px;
+  padding-left:12px;
+}
+
+.tecnica{
+  display:inline-block;
+  margin:0 0 18px 12px;
+  padding:3px 10px;
+  font-family:'JetBrains Mono', monospace;
+  font-size:.7rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--citrus);
+  border:1px solid rgba(168,194,86,.35);
+  border-radius:20px;
+}
+
+.ingredienti{
+  list-style:none;
+  margin:0 0 16px;
+  padding:0 0 0 12px;
+  border-top:1px dashed var(--line);
+  padding-top:14px;
+}
+
+.ingredienti li{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding:5px 0;
+  color:var(--paper-dim);
+  font-size:.92rem;
+}
+
+.ingredienti li + li{
+  border-top:1px solid rgba(255,255,255,.04);
+}
+
+.ingredienti .qt{
+  font-family:'JetBrains Mono', monospace;
+  color:var(--brass);
+  font-size:.85rem;
+  white-space:nowrap;
+  margin-left:12px;
+}
+
+.note{
+  margin:0 0 0 12px;
+  padding-top:14px;
+  border-top:1px dashed var(--line);
+  color:var(--paper-dim);
+  font-size:.82rem;
+  line-height:1.5;
+  font-style:italic;
+}
