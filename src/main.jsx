@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   {path:"/learn",
     element:<Learn></Learn>
   },
-])
+], {basename:"/cocktail-smart"})
 
 
 createRoot(document.getElementById('root')).render(
