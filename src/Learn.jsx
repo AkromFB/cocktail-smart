@@ -1,4 +1,5 @@
 import './App.css'
+import TopBar from './components/TopBar'
 
 const tecniche_info = [
   {
@@ -61,6 +62,8 @@ const tecniche_info = [
 
 function Learn() {
   return (
+    <>
+    <TopBar></TopBar>
     <section id="learn">
       <h1 className="name">Le tecniche di preparazione</h1>
       <p className="learn-intro">
@@ -78,6 +81,7 @@ function Learn() {
         ))}
       </ul>
     </section>
+    </>
   )
 }
 

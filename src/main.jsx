@@ -1,22 +1,22 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import AddPanel from './AddPanel.jsx'
 import Learn from './Learn.jsx'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {path:"/",
     element:<App></App>
   },
-  {path:"/add",
+  {path:"add",
     element:<AddPanel></AddPanel>
   },
-  {path:"/learn",
+  {path:"learn",
     element:<Learn></Learn>
   },
-], {basename:"/cocktail-smart"})
+])
 
 
 createRoot(document.getElementById('root')).render(

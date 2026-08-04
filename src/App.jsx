@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import './App.css'
 import Card from './components/Card'
 import { cocktail_list } from './data'
+import TopBar from './components/TopBar'
 
 function App() {
   const [search, setSearch] = useState('')
@@ -30,6 +31,7 @@ function App() {
   return (
     <>
       <header className="filter-bar">
+        <TopBar></TopBar>
         <input
           type="text"
           className="filter-search"

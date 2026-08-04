@@ -24,6 +24,63 @@ body{
 #center{
   padding:0 24px 56px;
 }
+/* ---------- Top Bar ----------- */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  margin:0 0 18px 12px;
+  padding:3px 10px;
+  font-family:'JetBrains Mono', monospace;
+  font-size:.7rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--citrus);
+  border:1px solid rgba(168,194,86,.35);
+  border-radius:20px;
+}
+
+.top-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--paper);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-text-muted, #555);
+  font-size: 0.95rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.375rem;
+  transition: color 180ms, background 180ms;
+}
+
+.link:hover {
+  color: var(--color-text, #111);
+  background:radial-gradient(circle at 35% 30%, var(--brass) 0%, var(--brass-dim) 70%);
+}
+
+.link.active {
+  color: var(--color-text, #111);
+  background:radial-gradient(circle at 35% 30%, var(--brass) 0%, var(--brass-dim) 70%);
+  font-weight: 600;
+}
 
 /* ---------- Barra filtri ---------- */
 
