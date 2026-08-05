@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import AddPanel from './AddPanel.jsx'
 import Learn from './Learn.jsx'
+import MyLab from './MyLab.jsx'
 
 const router = createHashRouter([
   {path:"/",
@@ -15,6 +16,9 @@ const router = createHashRouter([
   },
   {path:"learn",
     element:<Learn></Learn>
+  },
+  {path:"mylab",
+    element:<MyLab></MyLab>
   },
 ])
 

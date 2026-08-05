@@ -324,3 +324,20 @@ body{
   line-height:1.5;
   font-style:italic;
 }
+
+/* --------- Drag & Drop ---------- */
+.drop-zone{
+  width: 300px;
+  height: 300px;
+  padding:9px 16px;
+  background:transparent;
+  border:1px dashed var(--citrus);
+  border-radius:20px;
+  color:var(--citrus);
+  font-family:'JetBrains Mono', monospace;
+  font-size:.72rem;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:background .2s ease, color .2s ease;
+}

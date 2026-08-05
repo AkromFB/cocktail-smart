@@ -19,6 +19,13 @@ function TopBar(){
               >
                 Learn
               </NavLink>
+
+              <NavLink
+                to="/mylab"
+                className={({ isActive }) => (isActive ? 'link active' : 'link')}
+              >
+                MyLab
+              </NavLink>
             </div>
           </div>
         </nav>)
